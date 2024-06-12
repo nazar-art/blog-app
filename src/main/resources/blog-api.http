@@ -1,0 +1,36 @@
+### list all
+GET localhost:8083/v1/articles
+
+### list all created before
+GET localhost:8083/v1/articles?date=2024-06-12T15:00:00
+
+
+### create
+POST localhost:8083/v1/articles
+Content-Type: application/json
+
+{
+  "post": "demo 3",
+  "authorName": "tom"
+}
+
+### get one
+GET localhost:8083/v1/articles/1
+
+### update
+PUT localhost:8083/v1/articles/1
+Content-Type: application/json
+
+{
+  "post": "UPDATED post message"
+}
+
+### delete
+DELETE localhost:8083/v1/articles/8
+
+
+### get all
+GET localhost:8083/v1/authors
+
+### get one
+GET localhost:8083/v1/authors/harry
