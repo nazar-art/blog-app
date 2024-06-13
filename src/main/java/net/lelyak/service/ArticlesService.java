@@ -8,7 +8,6 @@ import net.lelyak.domain.Article;
 import net.lelyak.domain.Author;
 import net.lelyak.repository.ArticlesRepository;
 import net.lelyak.repository.AuthorRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
