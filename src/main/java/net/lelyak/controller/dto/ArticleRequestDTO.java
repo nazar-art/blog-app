@@ -1,8 +1,8 @@
 package net.lelyak.controller.dto;
 
-import java.io.Serializable;
-
 import jakarta.validation.constraints.NotEmpty;
+
+import java.io.Serializable;
 
 /**
  * @author Nazar Lelyak.

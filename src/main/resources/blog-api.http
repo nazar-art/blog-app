@@ -28,9 +28,3 @@ Content-Type: application/json
 ### delete
 DELETE localhost:8083/v1/articles/8
 
-
-### get all
-GET localhost:8083/v1/authors
-
-### get one
-GET localhost:8083/v1/authors/harry

@@ -12,6 +12,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serial;
@@ -25,6 +26,7 @@ import java.util.Objects;
  */
 @Data
 @Entity
+@EqualsAndHashCode(of = {"id"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -45,7 +47,6 @@ public class Author implements Serializable {
 
     public Author(String name) {
         this.name = name;
-//        this.articles = new ArrayList<>();
     }
 
     public void addArticle(Article article) {
