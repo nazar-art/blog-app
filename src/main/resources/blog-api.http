@@ -10,8 +10,8 @@ POST localhost:8083/v1/articles
 Content-Type: application/json
 
 {
-  "post": "demo 3",
-  "authorName": "tom"
+  "post": "It will be the best post ever",
+  "authorName": "harry"
 }
 
 ### get one

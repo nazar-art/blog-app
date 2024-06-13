@@ -8,6 +8,7 @@ import net.lelyak.domain.Article;
 import net.lelyak.domain.Author;
 import net.lelyak.repository.ArticlesRepository;
 import net.lelyak.repository.AuthorRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class ArticlesService {
     private final ArticlesRepository articlesRepository;
     private final AuthorRepository authorRepository;
 
+    @Transactional(readOnly = true)
     public Page<ArticleResponseDTO> getArticles(LocalDateTime date, Pageable pageable) {
         if (date != null) {
             return articlesRepository.findArticlesBefore(date, pageable);
@@ -34,11 +36,13 @@ public class ArticlesService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Article getArticle(Long id) {
         return articlesRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
     }
 
+    @Transactional
     public Article createArticle(ArticleRequestDTO dto) {
         Author author = getAuthor(dto.authorName());
         Article article = new Article(dto.post(), author);
@@ -55,7 +59,7 @@ public class ArticlesService {
     @Transactional
     public Article updateArticle(Article fromDb, Article article) {
         fromDb.setPost(article.getPost());
-        return fromDb;
+        return articlesRepository.save(fromDb);
     }
 
     public void deleteArticle(Article article) {
