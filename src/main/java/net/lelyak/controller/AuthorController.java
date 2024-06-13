@@ -1,5 +1,6 @@
 package net.lelyak.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import net.lelyak.domain.Author;
 import net.lelyak.repository.AuthorRepository;
@@ -26,6 +27,7 @@ public class AuthorController {
 
     @GetMapping("{name}")
     public Author getOne(@PathVariable String name) {
-        return authorRepository.getAuthor(name);
+        return authorRepository.findByName(name)
+                .orElseThrow(EntityNotFoundException::new);
     }
 }

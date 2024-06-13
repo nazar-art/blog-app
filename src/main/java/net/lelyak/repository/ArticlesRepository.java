@@ -16,7 +16,7 @@ import java.util.Optional;
  */
 public interface ArticlesRepository extends JpaRepository<Article, Long> {
 
-    @Query("select new net.lelyak.controller.dto.ArticleResponseDTO(a.id, a.post, a.createdAt, a.author.id, a.author.name) " +
+    @Query("select new net.lelyak.controller.dto.ArticleResponseDTO(a.id, a.post, a.createdAt, a.updatedAt, a.author.id, a.author.name) " +
             "from Article a " +
             "where a.createdAt < :date")
     Page<ArticleResponseDTO> findArticlesBefore(@Param("date") LocalDateTime date, Pageable pageable);

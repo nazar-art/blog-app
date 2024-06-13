@@ -10,25 +10,25 @@ POST localhost:8083/v1/articles
 Content-Type: application/json
 
 {
-  "post": "demo 3",
-  "authorName": "tom"
+  "post": "needed post",
+  "authorName": "harry"
 }
 
 ### get one
-GET localhost:8083/v1/articles/1
+GET localhost:8083/v1/articles/12
 
 ### update
-PUT localhost:8083/v1/articles/1
+PUT localhost:8083/v1/articles/12
 Content-Type: application/json
 
 {
-  "post": "UPDATED post message"
+  "post": "demo"
 }
 
 ### delete
 DELETE localhost:8083/v1/articles/8
 
-
+===
 ### get all
 GET localhost:8083/v1/authors
 

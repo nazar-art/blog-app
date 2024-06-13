@@ -8,6 +8,11 @@ import net.lelyak.domain.Article;
  */
 public final class ArticleMapper {
     public static ArticleResponseDTO toDto(Article article) {
-        return new ArticleResponseDTO(article.getId(), article.getPost(), article.getCreatedAt(), article.getAuthor().getId(), article.getAuthor().getName());
+        return new ArticleResponseDTO(
+                article.getId(), article.getPost(),
+                article.getCreatedAt(), article.getUpdatedAt(),
+                article.getAuthor().getId(),
+                article.getAuthor().getName()
+        );
     }
 }
