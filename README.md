@@ -64,3 +64,5 @@ Credentials:
 
     DB name: blog_db
     username: sa
+
+password field should be empty.
