@@ -6,6 +6,9 @@ import java.time.LocalDateTime;
 /**
  * @author Nazar Lelyak.
  */
-public record ArticleResponseDTO(long id, String post, LocalDateTime createdAt, long authorId,
-                                 String authorName) implements Serializable {
+public record ArticleResponseDTO(
+        long id, String post,
+        LocalDateTime createdAt, LocalDateTime updatedAt,
+        long authorId, String authorName
+) implements Serializable {
 }

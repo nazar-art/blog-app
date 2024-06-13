@@ -61,6 +61,7 @@ public class ArticlesService {
         return articlesRepository.save(fromDb);
     }
 
+    @Transactional
     public void deleteArticle(Article article) {
         articlesRepository.delete(article);
     }
