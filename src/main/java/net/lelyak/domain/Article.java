@@ -1,6 +1,7 @@
 package net.lelyak.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -18,10 +19,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.lelyak.config.ClockHolder;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 /**
  * @author Nazar Lelyak.
@@ -46,10 +48,10 @@ public class Article implements Serializable {
     private String post;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 
     @Column
-    private LocalDateTime updatedAt;
+    private Instant updatedAt;
 
     @JsonBackReference
     @ManyToOne(optional = false)
@@ -63,11 +65,11 @@ public class Article implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        createdAt = LocalDateTime.now();
+        createdAt = Instant.now(ClockHolder.getClock());
     }
 
     @PreUpdate
     public void preUpdate() {
-        updatedAt = LocalDateTime.now();
+        updatedAt = Instant.now(ClockHolder.getClock());
     }
 }

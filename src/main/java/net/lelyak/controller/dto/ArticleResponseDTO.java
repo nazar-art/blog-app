@@ -1,14 +1,14 @@
 package net.lelyak.controller.dto;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 /**
  * @author Nazar Lelyak.
  */
 public record ArticleResponseDTO(
         long id, String post,
-        LocalDateTime createdAt, LocalDateTime updatedAt,
+        Instant createdAt, Instant updatedAt,
         long authorId, String authorName
 ) implements Serializable {
 }
